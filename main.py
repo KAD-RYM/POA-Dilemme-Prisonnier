@@ -1,6 +1,6 @@
 import random
 from moteur import Tournament
-from strategies import AllD, RandomStrat, TitForTat, Tester, Joss
+from strategies import AllD, RandomStrat, TitForTat, Tester, Joss, Pavlov, Pairman
 
 if __name__ == "__main__":
     random.seed(42)
@@ -10,7 +10,9 @@ if __name__ == "__main__":
         RandomStrat(),
         TitForTat(),
         Tester(),
-        Joss()
+        Joss(),
+        Pavlov(),
+        Pairman()
     ]
 
     nb_parties = 5
