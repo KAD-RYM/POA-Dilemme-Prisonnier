@@ -67,7 +67,19 @@ def main():
             print(f"{strat1.name} : {s1} pts | {strat2.name} : {s2} pts")
 
     elif choix_mode == "2":
-        population_classes = [AllD, RandomStrat, TitForTat, Tester, Joss, Pavlov, Pairman]
+        print("\n--- Choix de la population ---")
+        print("1. Population de base (5 stratégies : All-D, Random, TFT, Tester, Joss)")
+        print("2. Population complète (7 stratégies : ajout de Pavlov et Pairman)")
+        
+        while True:
+            choix_pop = input("Votre choix (1 ou 2) : ").strip()
+            if choix_pop in ["1", "2"]: break
+            print("Entrez 1 ou 2.")
+
+        if choix_pop == "1":
+            population_classes = [AllD, RandomStrat, TitForTat, Tester, Joss]
+        else:
+            population_classes = [AllD, RandomStrat, TitForTat, Tester, Joss, Pavlov, Pairman]
         
         while True:
             type_h = input("Choisissez un type de partie : (1: Nombre de tours fixes | 2: Horizon inconnu) : ").strip()
@@ -90,7 +102,19 @@ def main():
                 print(f"{rang}. {nom} : {score} points")
 
     elif choix_mode == "3":
-        population_classes = [AllD, RandomStrat, TitForTat, Tester, Joss, Pavlov, Pairman]
+        print("\n--- Choix de la population ---")
+        print("1. Population de base (5 stratégies : All-D, Random, TFT, Tester, Joss)")
+        print("2. Population complète (7 stratégies : ajout de Pavlov et Pairman)")
+        
+        while True:
+            choix_pop = input("Votre choix (1 ou 2) : ").strip()
+            if choix_pop in ["1", "2"]: break
+            print("Entrez 1 ou 2.")
+
+        if choix_pop == "1":
+            population_classes = [AllD, RandomStrat, TitForTat, Tester, Joss]
+        else:
+            population_classes = [AllD, RandomStrat, TitForTat, Tester, Joss, Pavlov, Pairman]
         
         while True:
             type_h = input("Choisissez un type de partie : (1: Nombre de tours fixes | 2: Horizon inconnu) : ").strip()
@@ -110,7 +134,7 @@ def main():
             tournoi_gen = TournamentGenerationnel(population_classes, nb_generations=nb_gen, nb_parties=5, w=w)
             historique = tournoi_gen.run_evolution()
             
-        print(f"\n--- ÉVOLUTION INTERGÉNÉRATIONNELLE ({nb_gen} génaration) ---")
+        print(f"\n--- ÉVOLUTION INTERGÉNÉRATIONNELLE ({nb_gen} génération) ---")
         for gen, data in enumerate(historique):
             print(f"Génération {gen + 1} (Durée moy. : {data['moyenne_tours']:.1f} tours) :")
             for nom, proportion in sorted(data['repartition'].items(), key=lambda x: x[1], reverse=True):
